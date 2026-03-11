@@ -1,584 +1,147 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carole Boyer Chapuis — Artiste Sculptrice</title>
-  <meta name="description" content="Site officiel de Carole Boyer Chapuis, artiste sculptrice. Sculptures, œuvres, expositions, commandes et contact." />
+<section id="intro">
+  <div class="container">
+    <div class="intro-kicker">Sculptures contemporaines et sensibles</div>
+    <div class="intro-sub">Je suis Carole Boyer Chapuis | Artiste sculpteur</div>
 
-  <!-- Open Graph (aperçu quand on partage le lien) -->
-  <meta property="og:title" content="Carole Boyer Chapuis — Artiste Sculptrice" />
-  <meta property="og:description" content="Sculptures, œuvres, expositions, commandes et contact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/images/hero.jpg" />
+    <div class="text">
+      <p>
+        Je suis sculptrice, basée à Mercuer, en Ardèche.
+        À travers la terre cuite, la terre patinée et le bronze, je cherche à faire naître
+        des présences, des attitudes, des silences et des émotions.
+      </p>
 
-  <style>
-    :root{
-      --bg:#0b0c10;
-      --card:#11131a;
-      --text:#f5f6f7;
-      --muted:#b7bdc6;
-      --line:rgba(255,255,255,.10);
-      --accent:#d6b37a; /* doré chaud */
-      --accent2:#8fb7ff; /* bleu doux (secondaire) */
-      --shadow: 0 18px 45px rgba(0,0,0,.45);
-      --radius: 18px;
-      --radius2: 12px;
-      --max: 1140px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(214,179,122,.18), transparent 60%),
-                  radial-gradient(900px 500px at 85% 5%, rgba(143,183,255,.12), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.6;
-    }
-
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:12px 16px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      transition:.2s ease;
-      font-weight:600;
-    }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10)}
-    .btn.primary{
-      border-color: rgba(214,179,122,.45);
-      background: linear-gradient(135deg, rgba(214,179,122,.22), rgba(255,255,255,.06));
-    }
-    .chip{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:8px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-size: 14px;
-      white-space:nowrap;
-    }
-
-    /* NAV */
-    .nav{
-      position:sticky; top:0; z-index:50;
-      background: rgba(11,12,16,.65);
-      backdrop-filter: blur(12px);
-      border-bottom:1px solid var(--line);
-    }
-    .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:800; letter-spacing:.5px;
-    }
-    .logo{
-      width:34px; height:34px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(214,179,122,.9), rgba(143,183,255,.65));
-      box-shadow: 0 10px 25px rgba(0,0,0,.35);
-    }
-    .nav-links{
-      display:flex; gap:18px; align-items:center;
-      color: var(--muted);
-      font-weight:600;
-    }
-    .nav-links a{padding:8px 10px; border-radius:10px}
-    .nav-links a:hover{background: rgba(255,255,255,.06); color:var(--text)}
-    .nav-cta{display:flex; gap:10px; align-items:center}
-
-    /* HERO */
-    .hero{padding:54px 0 24px}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:22px;
-      align-items:stretch;
-    }
-    .hero-card{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .hero-copy{padding:28px}
-    .kicker{
-      color: var(--accent);
-      font-weight:800;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      font-size:12px;
-    }
-    h1{
-      margin:10px 0 10px;
-      font-size: clamp(34px, 4vw, 52px);
-      line-height:1.05;
-      letter-spacing:-.02em;
-    }
-    .lead{
-      color: var(--muted);
-      font-size: 16.5px;
-      max-width: 58ch;
-      margin: 0 0 18px;
-    }
-    .hero-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-    .hero-meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
-
-    .hero-visual{
-      position:relative;
-      min-height: 360px;
-    }
-    .hero-visual img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      filter: contrast(1.02) saturate(1.05);
-      transform: scale(1.02);
-    }
-    .hero-visual::after{
-      content:"";
-      position:absolute; inset:0;
-      background: radial-gradient(600px 300px at 30% 10%, rgba(214,179,122,.22), transparent 55%),
-                  linear-gradient(to top, rgba(11,12,16,.95), rgba(11,12,16,.20));
-      pointer-events:none;
-    }
-    .hero-badge{
-      position:absolute;
-      left:16px; bottom:16px;
-      display:flex; flex-direction:column; gap:4px;
-      padding:12px 14px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(11,12,16,.45);
-      backdrop-filter: blur(10px);
-    }
-    .hero-badge strong{font-size:14px}
-    .hero-badge span{font-size:13px; color:var(--muted)}
-
-    /* SECTIONS */
-    section{padding:54px 0}
-    .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:14px; flex-wrap:wrap;
-      margin-bottom:18px;
-    }
-    h2{
-      margin:0;
-      font-size: clamp(22px, 2.6vw, 30px);
-      letter-spacing:-.01em;
-    }
-    .sub{
-      color: var(--muted);
-      max-width: 70ch;
-      margin: 6px 0 0;
-    }
-
-    .grid{
-      display:grid;
-      gap:16px;
-    }
-    .grid.two{grid-template-columns: repeat(2, 1fr)}
-    .grid.three{grid-template-columns: repeat(3, 1fr)}
-    .card{
-      border:1px solid var(--line);
-      border-radius: var(--radius2);
-      background: rgba(255,255,255,.04);
-      box-shadow: 0 12px 30px rgba(0,0,0,.25);
-      padding:18px;
-    }
-    .card h3{margin:0 0 8px; font-size:18px}
-    .card p{margin:0; color: var(--muted)}
-
-    /* GALLERY */
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 12px;
-    }
-    .tile{
-      position:relative;
-      border-radius: 18px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      background: #0e1016;
-      box-shadow: 0 16px 40px rgba(0,0,0,.35);
-      min-height: 180px;
-    }
-    .tile img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition: transform .25s ease;
-      opacity:.96;
-    }
-    .tile:hover img{transform: scale(1.04)}
-    .tile .cap{
-      position:absolute; inset:auto 0 0 0;
-      padding:14px 14px 12px;
-      background: linear-gradient(to top, rgba(11,12,16,.92), rgba(11,12,16,0));
-    }
-    .cap strong{display:block; font-size:14px}
-    .cap span{display:block; font-size:13px; color: var(--muted)}
-    .span-7{grid-column: span 7}
-    .span-5{grid-column: span 5}
-    .span-4{grid-column: span 4}
-    .span-6{grid-column: span 6}
-
-    /* CONTACT */
-    .contact{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:16px;
-      align-items:start;
-    }
-    .form{
-      display:grid;
-      gap:12px;
-    }
-    input, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius: 12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      outline:none;
-    }
-    input::placeholder, textarea::placeholder{color: rgba(183,189,198,.7)}
-    textarea{min-height:120px; resize:vertical}
-    .note{color:var(--muted); font-size:14px; margin-top:8px}
-
-    /* FOOTER */
-    footer{
-      border-top:1px solid var(--line);
-      padding:26px 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .foot{
-      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
-      align-items:center;
-    }
-    .foot a{color: var(--text); opacity:.85}
-    .foot a:hover{opacity:1}
-
-    /* Responsive */
-    @media (max-width: 900px){
-      .hero-grid{grid-template-columns: 1fr}
-      .hero-visual{min-height: 320px}
-      .grid.two, .grid.three{grid-template-columns: 1fr}
-      .contact{grid-template-columns: 1fr}
-      .span-7, .span-5, .span-6, .span-4{grid-column: span 12}
-      .nav-links{display:none}
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- NAV -->
-  <div class="nav">
-    <div class="wrap nav-inner">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <div style="font-size:14px; opacity:.95;">Carole Boyer Chapuis</div>
-          <div style="font-size:12px; color:var(--muted); margin-top:-2px;">Artiste sculptrice</div>
-        </div>
-      </div>
-
-      <nav class="nav-links" aria-label="Navigation">
-        <a href="#apropos">À propos</a>
-        <a href="#oeuvres">Œuvres</a>
-        <a href="#expos">Expositions</a>
-        <a href="#presse">Presse</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="nav-cta">
-        <a class="btn" href="#oeuvres">Voir la galerie</a>
-        <a class="btn primary" href="#contact">Commander / Contact</a>
-      </div>
+      <p>
+        Mon travail s’inscrit dans une recherche sensible du corps, du mouvement et de l’expression.
+        Chaque sculpture est pour moi une manière de donner forme à une sensation intérieure.
+      </p>
     </div>
   </div>
+</section>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="wrap hero-grid">
+<section id="apropos">
+  <div class="container">
+    <h2>À propos</h2>
+    <div class="eyebrow"></div>
 
-      <div class="hero-card hero-copy">
-        <div class="kicker">SCULPTURE • MATIÈRE • ÉMOTION</div>
-        <h1>Des œuvres sculptées à la main, entre force et délicatesse.</h1>
-        <p class="lead">
-          Bienvenue sur mon atelier en ligne. Je crée des sculptures originales et des pièces sur commande.
-          Découvrez une sélection d’œuvres, mes expositions et les informations pour me contacter.
-        </p>
+    <div class="text">
+      <p>
+        Je suis Carole Boyer Chapuis, artiste sculpteur. Je vis et travaille à Mercuer, en Ardèche.
+      </p>
 
-        <div class="hero-actions">
-          <a class="btn primary" href="#contact">Me contacter</a>
-          <a class="btn" href="#oeuvres">Découvrir les œuvres</a>
-          <a class="btn" href="mailto:contact@caroleboyerchapuis.com">Envoyer un email</a>
-        </div>
+      <p>
+        Depuis plusieurs années, je développe une pratique centrée sur le modelage, l’observation du vivant
+        et la recherche de l’émotion à travers la matière. Je m’intéresse particulièrement à la figure humaine,
+        aux attitudes du corps, aux expressions intérieures, à la fragilité comme à la force.
+      </p>
 
-        <div class="hero-meta">
-          <span class="chip">📍 Basée à : <strong style="color:var(--text); font-weight:700;">[Votre ville]</strong></span>
-          <span class="chip">🗓️ Commissions : <strong style="color:var(--text); font-weight:700;">ouvertes</strong></span>
-          <span class="chip">🧱 Matières : <strong style="color:var(--text); font-weight:700;">[bronze / argile / pierre]</strong></span>
-        </div>
-      </div>
-
-      <div class="hero-card hero-visual">
-        <!-- Remplace l'image par ta photo : assets/images/hero.jpg -->
-        <img src="assets/images/hero.jpg" alt="Sculpture en lumière – photo d’atelier" />
-        <div class="hero-badge">
-          <strong>Nouvelle série</strong>
-          <span>“[Nom de la série]” — 2026</span>
-        </div>
-      </div>
-
+      <p>
+        Je travaille principalement la terre cuite, la terre patinée et le bronze.
+        Mes sculptures naissent d’un dialogue entre le geste, le regard et la matière.
+      </p>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- À PROPOS -->
-  <section id="apropos">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <h2>À propos</h2>
-          <p class="sub">
-            Quelques mots sur ma démarche, mon parcours et mon atelier.
-            Remplace ce texte par ta vraie biographie (3–6 lignes).
-          </p>
-        </div>
-        <a class="btn" href="#contact">Demander une commande</a>
-      </div>
+<section id="demarche">
+  <div class="container">
+    <h2>Ma démarche</h2>
+    <div class="eyebrow"></div>
 
-      <div class="grid two">
-        <div class="card">
-          <h3>Ma démarche</h3>
-          <p>
-            Je travaille la matière pour faire émerger des formes vivantes, des tensions, des silences.
-            Mes sculptures explorent <strong>la présence</strong>, la <strong>trace</strong> et la <strong>lumière</strong>.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Commandes & pièces uniques</h3>
-          <p>
-            Je réalise des pièces sur commande (formats, finitions, matériaux). Délais et budget sur demande.
-            Écris-moi avec ton idée, je te réponds rapidement.
-          </p>
-        </div>
-      </div>
+    <div class="text">
+      <p>
+        Dans mon travail, je cherche avant tout une présence.
+      </p>
+
+      <p>
+        Une posture, un visage, une tension du corps ou un léger mouvement peuvent suffire à faire apparaître une émotion.
+        Je m’attache à ce qui est suggéré, ressenti, contenu.
+      </p>
+
+      <p>
+        La sculpture est pour moi un langage silencieux. Elle me permet d’exprimer ce qui ne passe pas toujours par les mots :
+        l’intériorité, le doute, la douceur, la mélancolie, l’attente, l’élan.
+      </p>
+
+      <p>
+        Je travaille à partir de l’observation, du souvenir, de l’intuition et du rapport direct à la matière.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- OEUVRES / GALERIE -->
-  <section id="oeuvres">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <h2>Œuvres sélectionnées</h2>
-          <p class="sub">Clique sur une œuvre pour agrandir (sur mobile, pinch-zoom). Remplace les images par les tiennes.</p>
-        </div>
-        <span class="chip">📷 Conseil : images en JPG, ~2000px de large</span>
-      </div>
+<section id="galerie">
+  <div class="container">
+    <h2>Mes sculptures</h2>
+    <div class="eyebrow"></div>
 
-      <div class="gallery">
-        <!-- Remplace les src et les titres -->
-        <a class="tile span-7" href="assets/images/oeuvre-1.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/oeuvre-1.jpg" alt="Œuvre 1" />
-          <div class="cap">
-            <strong>Œuvre 1 — “[Titre]”</strong>
-            <span>[Matière], [année] • [dimensions]</span>
-          </div>
-        </a>
-
-        <a class="tile span-5" href="assets/images/oeuvre-2.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/oeuvre-2.jpg" alt="Œuvre 2" />
-          <div class="cap">
-            <strong>Œuvre 2 — “[Titre]”</strong>
-            <span>[Matière], [année] • [dimensions]</span>
-          </div>
-        </a>
-
-        <a class="tile span-4" href="assets/images/oeuvre-3.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/oeuvre-3.jpg" alt="Œuvre 3" />
-          <div class="cap">
-            <strong>Œuvre 3 — “[Titre]”</strong>
-            <span>[Matière], [année] • [dimensions]</span>
-          </div>
-        </a>
-
-        <a class="tile span-4" href="assets/images/oeuvre-4.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/oeuvre-4.jpg" alt="Œuvre 4" />
-          <div class="cap">
-            <strong>Œuvre 4 — “[Titre]”</strong>
-            <span>[Matière], [année] • [dimensions]</span>
-          </div>
-        </a>
-
-        <a class="tile span-4" href="assets/images/oeuvre-5.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/oeuvre-5.jpg" alt="Œuvre 5" />
-          <div class="cap">
-            <strong>Œuvre 5 — “[Titre]”</strong>
-            <span>[Matière], [année] • [dimensions]</span>
-          </div>
-        </a>
-
-        <a class="tile span-6" href="assets/images/oeuvre-6.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/oeuvre-6.jpg" alt="Œuvre 6" />
-          <div class="cap">
-            <strong>Œuvre 6 — “[Titre]”</strong>
-            <span>[Matière], [année] • [dimensions]</span>
-          </div>
-        </a>
-
-        <a class="tile span-6" href="assets/images/oeuvre-7.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/oeuvre-7.jpg" alt="Œuvre 7" />
-          <div class="cap">
-            <strong>Œuvre 7 — “[Titre]”</strong>
-            <span>[Matière], [année] • [dimensions]</span>
-          </div>
-        </a>
-      </div>
+    <div class="text">
+      <p>
+        Voici une sélection de mes sculptures. Je travaille principalement la terre cuite cirée,
+        la terre cuite patinée et le bronze.
+      </p>
+      <p>
+        Chaque pièce possède sa propre présence, son équilibre, son silence.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- EXPOS -->
-  <section id="expos">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <h2>Expositions</h2>
-          <p class="sub">Ajoute ici tes dates passées et à venir.</p>
-        </div>
-        <a class="btn" href="#contact">Invitations / collaborations</a>
-      </div>
+<section id="formation">
+  <div class="container">
+    <h2>Formation</h2>
+    <div class="eyebrow"></div>
 
-      <div class="grid three">
-        <div class="card">
-          <h3>À venir</h3>
-          <p><strong>[Nom de l’exposition]</strong><br/>[Ville] • [dates]<br/><span style="color:var(--muted)">Lieu : [galerie / salon]</span></p>
-        </div>
-        <div class="card">
-          <h3>2025</h3>
-          <p><strong>[Nom]</strong><br/>[Ville] • [dates]<br/><span style="color:var(--muted)">Œuvres : [série]</span></p>
-        </div>
-        <div class="card">
-          <h3>2024</h3>
-          <p><strong>[Nom]</strong><br/>[Ville] • [dates]<br/><span style="color:var(--muted)">Mention : [presse / prix]</span></p>
-        </div>
-      </div>
+    <div class="text">
+      <p>2006–2007 — Cours de modelage d’après modèles vivants, animés par Berit Hildre — Académie du soir à Aubenas (07)</p>
+      <p>2005–2006 — Cours de modelage d’après modèles vivants, animés par Berit Hildre — Académie du soir à Aubenas (07)</p>
+      <p>2004–2005 — Cours de modelage d’après modèles vivants, animés par Berit Hildre — Académie du soir à Aubenas (07)</p>
+      <p>2003–2004 — Cours de modelage d’après modèles vivants, animés par Berit Hildre — Académie du soir à Aubenas (07)</p>
+      <p>2002–2003 — Cours de modelage d’après modèles vivants, animés par Berit Hildre — Académie du soir à Aubenas (07)</p>
+      <p>2001–2002 — Cours de modelage d’après modèles vivants, animés par Berit Hildre — La Marotte à Vals-les-Bains (07)</p>
+      <p>2000–2001 — Cours de modelage d’après modèles vivants, animés par Berit Hildre — La Marotte à Vals-les-Bains (07)</p>
+      <p>1997–1998 — Cours de modelage et de croquis d’après modèles vivants — École des Beaux-Arts de Digne-les-Bains (04)</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PRESSE -->
-  <section id="presse">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <h2>Presse & liens</h2>
-          <p class="sub">Ajoute des liens vers articles, interviews, Instagram, galerie, etc.</p>
-        </div>
-        <span class="chip">💡 Astuce : mets 3–6 liens max</span>
-      </div>
+<section id="parcours">
+  <div class="container">
+    <h2>Parcours</h2>
+    <div class="eyebrow"></div>
 
-      <div class="grid two">
-        <div class="card">
-          <h3>Articles</h3>
-          <p>
-            • <a href="#" target="_blank" rel="noreferrer" style="color:var(--text); text-decoration:underline;">[Titre article 1]</a><br/>
-            • <a href="#" target="_blank" rel="noreferrer" style="color:var(--text); text-decoration:underline;">[Titre article 2]</a><br/>
-            • <a href="#" target="_blank" rel="noreferrer" style="color:var(--text); text-decoration:underline;">[Titre article 3]</a>
-          </p>
-        </div>
-        <div class="card">
-          <h3>Réseaux</h3>
-          <p>
-            • <a href="#" target="_blank" rel="noreferrer" style="color:var(--text); text-decoration:underline;">Instagram</a><br/>
-            • <a href="#" target="_blank" rel="noreferrer" style="color:var(--text); text-decoration:underline;">Facebook</a><br/>
-            • <a href="#" target="_blank" rel="noreferrer" style="color:var(--text); text-decoration:underline;">Portfolio / Galerie</a>
-          </p>
-        </div>
-      </div>
+    <div class="text">
+      <p>Juin 2004 — J’ai obtenu une bourse d’initiation à la fonderie d’art Barthélémy, à Crest (26)</p>
+      <p>Avril 2004 — J’ai obtenu le prix de sculpture lors du concours des jeunes talents organisé par l’amicale Kiwanis – Lions – Rotary (07)</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <h2>Contact</h2>
-          <p class="sub">Le formulaire ci-dessous ouvre ton application mail (simple et gratuit). Tu peux aussi mettre ton email.</p>
-        </div>
-      </div>
+<section id="expositions">
+  <div class="container">
+    <h2>Expositions</h2>
+    <div class="eyebrow"></div>
 
-      <div class="contact">
-        <div class="card">
-          <h3>Envoyer un message</h3>
-
-          <!-- Formulaire simple qui ouvre l'email (pas besoin de serveur) -->
-          <form class="form" action="mailto:contact@caroleboyerchapuis.com" method="post" enctype="text/plain">
-            <input type="text" name="Nom" placeholder="Votre nom" required />
-            <input type="email" name="Email" placeholder="Votre email" required />
-            <input type="text" name="Sujet" placeholder="Sujet (commande, expo, presse…)" />
-            <textarea name="Message" placeholder="Votre message…" required></textarea>
-            <button class="btn primary" type="submit">Envoyer</button>
-            <div class="note">
-              Si le bouton n’ouvre pas votre mail sur mobile, utilisez : <a href="mailto:contact@caroleboyerchapuis.com" style="text-decoration:underline;">contact@caroleboyerchapuis.com</a>
-            </div>
-          </form>
-        </div>
-
-        <div class="card">
-          <h3>Infos</h3>
-          <p>
-            <strong>Email :</strong> <a href="mailto:contact@caroleboyerchapuis.com" style="text-decoration:underline;">contact@caroleboyerchapuis.com</a><br/>
-            <strong>Atelier :</strong> [Votre ville / région]<br/>
-            <strong>Commandes :</strong> ouvertes / sur demande<br/>
-            <strong>Réseaux :</strong> <a href="#" target="_blank" rel="noreferrer" style="text-decoration:underline;">Instagram</a>
-          </p>
-
-          <div style="height:12px"></div>
-
-          <div class="card" style="padding:14px; background: rgba(214,179,122,.08); border-color: rgba(214,179,122,.22);">
-            <h3 style="margin:0 0 6px">Besoin d’un devis ?</h3>
-            <p style="margin:0; color:var(--muted)">
-              Indique la taille souhaitée, le matériau, la date idéale et ton budget approximatif.
-            </p>
-          </div>
-        </div>
-      </div>
+    <div class="text">
+      <p>2025 — Galerie Charité Saint-Eutrope, Gordes (84), du 1er au 15 août</p>
+      <p>2025 — Exposition au Lavoir, Mougins (06), du 19 avril au 2 mai</p>
+      <p>2024 — Blou’Art, salon des métiers d’art à Thueyts (07), les 7 et 8 septembre</p>
+      <p>2023 — Balade des Arts, Ucel (07), le 9 août</p>
+      <p>2009 — Galerie de Verdure, Parc du Casino de Vals-les-Bains (07), 26 juillet et 16 août</p>
+      <p>2007 — Salle du Roure, Banne (07), du 16 au 30 juillet</p>
+      <p>2004 — Salle Volane, Vals-les-Bains (07), du 9 au 15 août</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div class="wrap foot">
-      <div>© <span id="y"></span> Carole Boyer Chapuis — Tous droits réservés</div>
-      <div style="display:flex; gap:14px; flex-wrap:wrap;">
-        <a href="#apropos">À propos</a>
-        <a href="#oeuvres">Œuvres</a>
-        <a href="#contact">Contact</a>
-      </div>
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <div class="eyebrow"></div>
+
+    <div class="contact-info">
+      <p>Mercuer, Ardèche</p>
+      <p><a href="tel:+33637345770">06 37 34 57 70</a></p>
+      <p><a href="mailto:caroleboyer.chapuis@orange.fr">caroleboyer.chapuis@orange.fr</a></p>
     </div>
-  </footer>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+  </div>
+</section>
